@@ -1,110 +1,151 @@
-<!DOCTYPE html><html lang="id"><head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Selamat Pagi Fidaa 🌞</title>  <!-- Favicon dan Font -->  <link rel="icon" href="https://feeldreams.github.io/main-icon.png">
-  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">  <!-- Swiper dan CSS -->  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Hai Fidaa 🌞</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
   <style>
-    body {
+    /* Cegah seleksi teks */
+    * {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    html, body {
+      height: 100%;
       margin: 0;
       padding: 0;
-      background: url('https://feeldreams.github.io/wp11.jpg') no-repeat center center fixed;
-      background-size: cover;
-      font-family: 'Quicksand', sans-serif;
-      color: white;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      background: #fff5e1;
       text-align: center;
     }
-    .start-screen {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100vh;
-      background-color: rgba(0, 0, 0, 0.5);
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
+
+    .container {
+      padding: 40px 20px;
     }
-    .start-screen button {
-      padding: 10px 20px;
-      font-size: 20px;
-      border: none;
-      border-radius: 10px;
-      background-color: #ffffffaa;
-      color: black;
-      cursor: pointer;
-    }
-    .swiper {
-      display: none;
-      width: 100%;
-      height: 100vh;
-    }
-    .swiper-slide {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      padding: 20px;
-    }
+
     .emoji {
-      font-size: 40px;
-      margin-bottom: 10px;
+      font-size: 48px;
+      margin-bottom: 20px;
     }
+
+    h1, h2 {
+      margin: 10px 0;
+    }
+
     .stiker {
       width: 150px;
       margin-top: 20px;
     }
+
+    .start-button {
+      display: inline-block;
+      background: #ffb703;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 50px;
+      transition: background 0.3s;
+    }
+
+    .start-button:hover {
+      background: #ff9500;
+    }
+
+    .swiper {
+      width: 100%;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .swiper-slide {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      padding: 20px;
+      text-align: center;
+      background: #fff5e1;
+      box-sizing: border-box;
+    }
   </style>
-</head><body>
-  <audio id="music" src="https://feeldreams.github.io/audio/foreveryoung.mp3"></audio>  <div class="start-screen" id="startScreen">
+</head>
+<body oncontextmenu="return false">
+
+  <div class="container">
     <h1>Hai Fidaa 🌞</h1>
     <p>Tap di sini dulu yaa biar musik dan semuanya bisa jalan ✨</p>
-    <button id="startBtn">Mulai</button>
-  </div>  <!-- Swiper -->  <div class="swiper mySwiper">
-    <div class="swiper-wrapper"><div class="swiper-slide">
-    <div class="emoji">☀️</div>
-    <h1>Selamat pagi Fidaa cantik!</h1>
-    <img class="stiker" src="https://feeldreams.github.io/pusn.gif" />
+    <div class="start-button" onclick="mulai()">Mulai</div>
   </div>
 
-  <div class="swiper-slide">
-    <div class="emoji">🌻</div>
-    <h1>Semoga harimu secerah senyummu hari ini yaa 😊</h1>
+  <div class="swiper mySwiper" style="display:none;">
+    <div class="swiper-wrapper">
+      <div class="swiper-slide">
+        <div class="emoji">☀️</div>
+        <h1>Selamat pagi Fidaa cantik!</h1>
+        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" />
+      </div>
+      <div class="swiper-slide">
+        <div class="emoji">🌻</div>
+        <h1>Semoga harimu secerah senyummu hari ini yaa 😊</h1>
+      </div>
+      <div class="swiper-slide">
+        <div class="emoji">💌</div>
+        <h1>Aku cuma mau bilang makasii udah tetap ada di hidupku 💖</h1>
+        <p style="max-width: 80%; margin-top: 20px;">
+          Maaf kalau kadang nyebelin dan nggak peka, tapi beneran deh, kamu itu orang paling spesial buat aku 😚
+        </p>
+      </div>
+      <div class="swiper-slide">
+        <div class="emoji">🫶</div>
+        <h1>Nikmatin harimu yaa Fidaa 🌼</h1>
+        <h2>Jangan lupa sarapan biar makin semangat 💪</h2>
+      </div>
+    </div>
+    <div class="swiper-pagination"></div>
   </div>
 
-  <div class="swiper-slide">
-    <div class="emoji">💌</div>
-    <h1>Aku cuma mau bilang makasii udah tetap ada di hidupku 💖</h1>
-    <p style="max-width: 80%; margin-top: 20px;">Maaf kalau kadang nyebelin dan nggak peka, tapi beneran deh, kamu itu orang paling spesial buat aku 😚</p>
-  </div>
+  <audio id="bgMusic" loop>
+    <source src="https://feeldreams.github.io/audio/pagi.mp3" type="audio/mp3" />
+  </audio>
 
-  <div class="swiper-slide">
-    <div class="emoji">🫶</div>
-    <h1>Nikmatin harimu yaa Fidaa 🌼</h1>
-    <h2>Jangan lupa sarapan biar makin semangat 💪</h2>
-  </div>
-
-</div>
-<div class="swiper-pagination"></div>
-
-  </div>  <!-- JS -->  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  <script>
-    const startBtn = document.getElementById('startBtn');
-    const music = document.getElementById('music');
-    const startScreen = document.getElementById('startScreen');
-    const swiperEl = document.querySelector('.swiper');
-
-    startBtn.addEventListener('click', () => {
-      music.play();
-      startScreen.style.display = 'none';
-      swiperEl.style.display = 'block';
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script>
+    function mulai() {
+      document.querySelector('.container').style.display = 'none';
+      document.querySelector('.swiper').style.display = 'block';
+      document.getElementById('bgMusic').play();
 
       new Swiper(".mySwiper", {
+        direction: "horizontal",
+        loop: false,
+        effect: "fade", // Ubah jadi "slide", "cube", atau "flip" kalau mau efek lain
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
         },
-        effect: "fade",
-        spaceBetween: 30,
       });
+    }
+
+    // Blok shortcut DevTools
+    document.addEventListener('keydown', function (e) {
+      if (
+        e.key === 'F12' ||
+        (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C')) ||
+        (e.ctrlKey && e.key === 'U')
+      ) {
+        e.preventDefault();
+      }
     });
-  </script></body></html>
+  </script>
+</body>
+</html>
