@@ -3,65 +3,66 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selamat Tidur Fidaa 💖</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <title>Selamat Tidur Fidaa 💤</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <style>
-    * {
-      box-sizing: border-box;
-    }
     body {
       margin: 0;
       font-family: 'Quicksand', sans-serif;
-      background: url('https://feeldreams.github.io/nightroom.jpg') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1600093463592-44e3d19f6c1f?auto=format&fit=crop&w=1920&q=80') no-repeat center center fixed;
       background-size: cover;
       color: white;
       text-align: center;
       overflow-x: hidden;
     }
+
     .overlay {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.4);
       position: fixed;
-      width: 100%;
-      height: 100%;
       top: 0;
       left: 0;
+      width: 100%;
+      height: 100%;
       z-index: 1;
     }
+
     .swiper {
-      position: relative;
-      z-index: 2;
       width: 100%;
       height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
-      padding: 20px;
+      z-index: 2;
     }
+
     .swiper-slide {
+      background: transparent;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      height: 100%;
+      justify-content: center;
+      padding: 0 20px;
     }
+
     h1 {
-      font-size: clamp(20px, 5vw, 30px);
-      margin: 12px;
-      line-height: 1.4em;
-      max-width: 90%;
+      font-size: 24px;
+      margin: 16px;
     }
+
     .emoji {
       font-size: 48px;
       animation: bounce 1.2s infinite;
     }
+
     @keyframes bounce {
       0%, 100% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
     }
+
     .btn-peluk {
       background-color: #fff;
       color: #000;
-      padding: 10px 24px;
+      padding: 10px 20px;
       border-radius: 50px;
       border: none;
       font-size: 16px;
@@ -69,49 +70,89 @@
       cursor: pointer;
       margin-top: 20px;
     }
+
     .hidden-msg {
       display: none;
       margin-top: 20px;
       font-size: 18px;
       color: #ffb6c1;
     }
+
     img.stiker {
       width: 120px;
       margin-top: 20px;
     }
+
+    .fade-slide {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease;
+    }
+
+    .fade-slide.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    p {
+      max-width: 500px;
+      font-size: 18px;
+      line-height: 1.6;
+      margin: 20px auto;
+    }
   </style>
 </head>
 <body>
-  <audio autoplay loop id="musik">
-    <source src="https://feeldreams.github.io/audio/tidur.mp3" type="audio/mp3">
-  </audio>
+  <audio autoplay loop src="https://feeldreams.github.io/audio/tidur.mp3" id="musik"></audio>
   <div class="overlay"></div>
-
+  
   <div class="swiper mySwiper">
     <div class="swiper-wrapper">
+      
       <div class="swiper-slide">
-        <div class="emoji">🌙</div>
+        <div class="emoji fade-slide">🌙</div>
         <h1>Hai Fidaa...</h1>
-        <h1 id="type1"></h1>
+        <h1 id="type1" class="fade-slide"></h1>
       </div>
+
       <div class="swiper-slide">
-        <div class="emoji">💤</div>
-        <h1 id="type2"></h1>
+        <div class="emoji fade-slide">💤</div>
+        <h1 id="type2" class="fade-slide"></h1>
         <img class="stiker" src="https://feeldreams.github.io/pusn.gif" />
       </div>
+
       <div class="swiper-slide">
-        <div class="emoji">🌌</div>
-        <h1 id="type3"></h1>
-        <h1>Jangan lupa mimpiin aku ya 😝</h1>
+        <div class="emoji fade-slide">🌌</div>
+        <h1 id="type3" class="fade-slide"></h1>
+        <h1 class="fade-slide">Jangan lupa mimpiin aku ya 😝</h1>
       </div>
+
       <div class="swiper-slide">
-        <div class="emoji">❤️</div>
-        <h1><b>Selamat tidur Fidaa tercinta</b></h1>
-        <h1>Peluk dulu sebelum tidur yuk 🥺👇</h1>
-        <button class="btn-peluk" onclick="showLove()">Peluk Dulu</button>
-        <div class="hidden-msg" id="loveMsg">Awww peluk balik ya Fidaa 💕🫂</div>
-        <img id="stikerPeluk" class="stiker" src="https://feeldreams.github.io/emawh.gif" style="display:none;" />
+        <div class="emoji fade-slide">❤️</div>
+        <h1 class="fade-slide"><b>Selamat tidur Fidaa tercinta</b></h1>
+        <h1 class="fade-slide">Peluk dulu sebelum tidur yuk 🥺👇</h1>
+        <button class="btn-peluk fade-slide" onclick="showLove()">Peluk Dulu</button>
+        <div class="hidden-msg fade-slide" id="loveMsg">Awww peluk balik ya Fidaa 💕🫂</div>
+        <img id="stikerPeluk" class="stiker fade-slide" src="https://feeldreams.github.io/emawh.gif" style="display:none;" />
       </div>
+
+      <!-- Slide Surat Cinta -->
+      <div class="swiper-slide">
+        <div class="emoji fade-slide">📝</div>
+        <h1 class="fade-slide">Surat buat Fidaa 💌</h1>
+        <p class="fade-slide">
+          Hai Fidaa...  
+          <br><br>
+          Aku cuma mau bilang makasih ya, karena udah hadir di hidup aku. Hari-hari yang dulu biasa aja jadi lebih berwarna sejak ada kamu.  
+          <br><br>
+          Maaf kalau aku kadang nyebelin, kadang nggak peka. Tapi satu yang pasti, aku sayang banget sama kamu.  
+          <br><br>
+          Jangan bosen ya nemenin aku, karena aku nggak akan pernah bosen nyayangin kamu.  
+          <br><br>
+          Selamat tidur sayangku. Mimpiin aku juga yaa 🤭💖  
+        </p>
+      </div>
+
     </div>
     <div class="swiper-pagination"></div>
   </div>
@@ -119,28 +160,14 @@
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
   <script>
-    setTimeout(() => {
+    const teks1 = () => {
+      document.querySelector("#type1").classList.add("show");
       new TypeIt("#type1", { speed: 50 }).type("Udah malam yaa, waktunya tidur 😴").go();
-    }, 500);
+    };
 
-    setTimeout(() => {
+    const teks2 = () => {
+      document.querySelector("#type2").classList.add("show");
       new TypeIt("#type2", { speed: 50 }).type("Makasih udah temenin hariku hari ini 🤍").go();
-    }, 5000);
+    };
 
-    setTimeout(() => {
-      new TypeIt("#type3", { speed: 50 }).type("Semoga Fidaa mimpi indah malam ini 💭").go();
-    }, 10000);
-
-    const swiper = new Swiper(".mySwiper", {
-      effect: "fade",
-      pagination: { el: ".swiper-pagination" },
-      autoplay: { delay: 4500, disableOnInteraction: false },
-    });
-
-    function showLove() {
-      document.getElementById("loveMsg").style.display = "block";
-      document.getElementById("stikerPeluk").style.display = "inline";
-    }
-  </script>
-</body>
-</html>
+    const teks3 = ()
