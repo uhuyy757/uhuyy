@@ -2,179 +2,128 @@
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pesan untuk Fidaa</title>
-  <link
-    rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css"
-  />
+  <title>Selamat Pagi Fidaa 🌞</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
-    body {
+    body, html {
       margin: 0;
-      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-      background: #111;
-      color: #fff;
+      padding: 0;
+      font-family: 'Quicksand', sans-serif;
+      background: url('https://feeldreams.github.io/morning.jpg') no-repeat center center fixed;
+      background-size: cover;
+      color: white;
+      text-align: center;
+    }
+
+    #startScreen {
       display: flex;
       justify-content: center;
       align-items: center;
       height: 100vh;
-      overflow: hidden;
+      flex-direction: column;
+      background: rgba(0, 0, 0, 0.4);
     }
+
+    #startBtn {
+      padding: 15px 30px;
+      font-size: 20px;
+      border-radius: 30px;
+      background: #ffcc00;
+      border: none;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+    }
+
     .swiper {
-      width: 90vw;
-      max-width: 400px;
-      height: 80vh;
-      background: #222;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 0 15px #555;
+      display: none;
+      height: 100vh;
+      padding: 20px;
+      background: rgba(0, 0, 0, 0.4);
     }
+
     .swiper-slide {
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
-      text-align: center;
-      padding: 20px;
+      justify-content: center;
     }
+
     .emoji {
-      font-size: 4rem;
-      margin-bottom: 15px;
+      font-size: 50px;
+      margin-bottom: 20px;
     }
-    h1, p {
-      margin: 10px 0;
-      line-height: 1.3;
-    }
+
     .stiker {
-      max-width: 150px;
       margin-top: 15px;
-    }
-    .btn-peluk {
-      margin-top: 15px;
-      padding: 12px 24px;
-      font-size: 1.1rem;
-      color: #222;
-      background: #f9a825;
-      border: none;
-      border-radius: 30px;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s;
-    }
-    .btn-peluk:hover {
-      background-color: #c17900;
-    }
-    .hidden-msg {
-      margin-top: 15px;
-      font-size: 1.2rem;
-      color: #ffcc00;
-    }
-    #stikerPeluk {
-      max-width: 150px;
-      margin-top: 10px;
-    }
-
-    /* fade-slide animation */
-    .fade-slide {
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 0.6s forwards;
-      animation-delay: 0.3s;
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-
-    /* Responsive for smaller devices */
-    @media (max-width: 400px) {
-      .swiper {
-        height: 75vh;
-      }
-      .emoji {
-        font-size: 3rem;
-      }
-      h1 {
-        font-size: 1.2rem;
-      }
-      .btn-peluk {
-        padding: 10px 20px;
-        font-size: 1rem;
-      }
-      .stiker, #stikerPeluk {
-        max-width: 120px;
-      }
+      max-width: 180px;
     }
   </style>
 </head>
 <body>
-  <div class="swiper">
-    <div class="swiper-wrapper">
-      <div class="swiper-slide">
-        <div class="emoji fade-slide">💤</div>
-        <h1 id="type2" class="fade-slide">Hai Fidaa...</h1>
-        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" alt="Stiker tidur" />
-      </div>
-      <div class="swiper-slide">
-        <div class="emoji fade-slide">🌌</div>
-        <h1 id="type3" class="fade-slide">Jangan lupa mimpiin aku ya 😝</h1>
-      </div>
-      <div class="swiper-slide">
-        <div class="emoji fade-slide">❤️</div>
-        <h1 class="fade-slide"><b>Selamat tidur Fidaa tercinta</b></h1>
-        <h1 class="fade-slide">Peluk dulu sebelum tidur yuk 🥺👇</h1>
-        <button class="btn-peluk fade-slide" onclick="showLove()">Peluk Dulu</button>
-        <div class="hidden-msg fade-slide" id="loveMsg" style="display:none;">
-          Awww peluk balik ya Fidaa 💕🥂
-        </div>
-        <img
-          id="stikerPeluk"
-          class="stiker fade-slide"
-          src="https://feeldreams.github.io/emawh.gif"
-          alt="Stiker peluk"
-          style="display:none;"
-        />
-      </div>
-      <div class="swiper-slide">
-        <div class="emoji fade-slide">📝</div>
-        <h1 class="fade-slide">Surat buat Fidaa 💌</h1>
-        <p class="fade-slide">
-          Hai Fidaa...<br /><br />
-          Aku cuma mau bilang makasih ya, karena udah hadir di hidup aku. Hari-hari yang dulu biasa aja jadi lebih berwarna sejak ada kamu.<br /><br />
-          Maaf kalau aku kadang nyebelin, kadang nggak peka. Tapi satu yang pasti, aku sayang banget sama kamu.<br /><br />
-          Jangan bosen ya nemenin aku, karena aku nggak akan pernah bosen nyayangin kamu.<br /><br />
-          Selamat tidur sayangku. Mimpiin aku juga yaa 🤭💖
-        </p>
-      </div>
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
-  <script>
-    const swiper = new Swiper(".swiper", {
+<audio id="bgMusic" src="https://feeldreams.github.io/audio/morningkiss.mp3"></audio>
+
+<div id="startScreen">
+  <h1>aloo adeek 🌤️</h1>
+  <p>Tap dulu buat mulai pagimu dung ✨</p>
+  <button id="startBtn">Mulai</button>
+</div>
+
+<div class="swiper mySwiper">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide">
+      <div class="emoji">☀️</div>
+      <h1> pagi addek cantik 💛</h1>
+      <p>Semoga harimu dimulai dengan senyum yaa 😚</p>
+    </div>
+    <div class="swiper-slide">
+      <div class="emoji">🍞</div>
+      <h1>Udah bangun kan?</h1>
+      <p>Jangan lupa sarapan duluu~ biar semangat 🤭</p>
+    </div>
+    <div class="swiper-slide">
+      <div class="emoji">✨</div>
+      <h1>Hari ini bakal seru kok!</h1>
+      <p>Apapun yang kamu lakuin, aku dukung penuh 😘</p>
+    </div>
+    <div class="swiper-slide">
+      <div class="emoji">🧡</div>
+      <h1>Fidaa itu spesial, tau nggak?</h1>
+      <p>Jangan pernah ragu buat bersinar hari ini 🌈</p>
+    </div>
+    <div class="swiper-slide">
+      <div class="emoji">🌷</div>
+      <h1>Aku di sini kok, selalu</h1>
+      <p>Yuk jalanin harinya bareng senyum 😄</p>
+      <img class="stiker" src="https://feeldreams.github.io/weee.gif" />
+    </div>
+  </div>
+  <div class="swiper-pagination"></div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const startBtn = document.getElementById("startBtn");
+  const music = document.getElementById("bgMusic");
+  const startScreen = document.getElementById("startScreen");
+  const swiperEl = document.querySelector(".swiper");
+
+  startBtn.addEventListener("click", () => {
+    startScreen.style.display = "none";
+    swiperEl.style.display = "block";
+    music.play();
+
+    new Swiper(".mySwiper", {
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
       },
-      effect: "slide",
+      effect: "fade",
       spaceBetween: 30,
-      centeredSlides: true,
     });
-
-    function showLove() {
-      const loveMsg = document.getElementById("loveMsg");
-      const stikerPeluk = document.getElementById("stikerPeluk");
-      if (loveMsg.style.display === "none") {
-        loveMsg.style.display = "block";
-        stikerPeluk.style.display = "block";
-      } else {
-        loveMsg.style.display = "none";
-        stikerPeluk.style.display = "none";
-      }
-    }
-  </script>
+  });
+</script>
 </body>
 </html>
