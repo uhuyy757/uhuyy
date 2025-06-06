@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
 
   <style>
-    /* Cegah seleksi teks */
     * {
       -webkit-user-select: none;
       -moz-user-select: none;
@@ -21,8 +20,25 @@
       padding: 0;
       overflow: hidden;
       font-family: 'Segoe UI', sans-serif;
-      background: #fff5e1;
+      background: linear-gradient(to top, #fff5e1 0%, #cce5ff 100%);
       text-align: center;
+    }
+
+    .clouds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: url('https://feeldreams.github.io/awan.png') repeat-x;
+      animation: moveClouds 60s linear infinite;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    @keyframes moveClouds {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
 
     .container {
@@ -74,12 +90,14 @@
       height: 100vh;
       padding: 20px;
       text-align: center;
-      background: #fff5e1;
+      background: transparent;
       box-sizing: border-box;
     }
   </style>
 </head>
 <body oncontextmenu="return false">
+
+  <div class="clouds"></div>
 
   <div class="container">
     <h1>Hai Fidaa 🌞</h1>
@@ -92,7 +110,7 @@
       <div class="swiper-slide">
         <div class="emoji">☀️</div>
         <h1>Selamat pagi Fidaa cantik!</h1>
-        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" />
+        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" alt="Stiker peluk lucu" />
       </div>
       <div class="swiper-slide">
         <div class="emoji">🌻</div>
@@ -114,8 +132,9 @@
     <div class="swiper-pagination"></div>
   </div>
 
-  <audio id="bgMusic" loop>
+  <audio id="bgMusic" autoplay loop muted>
     <source src="https://feeldreams.github.io/audio/pagi.mp3" type="audio/mp3" />
+    Browser kamu tidak mendukung audio 😢
   </audio>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -123,20 +142,31 @@
     function mulai() {
       document.querySelector('.container').style.display = 'none';
       document.querySelector('.swiper').style.display = 'block';
-      document.getElementById('bgMusic').play();
+
+      const music = document.getElementById('bgMusic');
+      music.muted = false;
+      const playPromise = music.play();
+      if (playPromise !== undefined) {
+        playPromise.catch(error => {
+          alert("Musiknya belum bisa diputar. Klik lagi ya 😊");
+        });
+      }
 
       new Swiper(".mySwiper", {
         direction: "horizontal",
         loop: false,
-        effect: "fade", // Ubah jadi "slide", "cube", atau "flip" kalau mau efek lain
+        effect: "fade",
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
         },
+        autoplay: {
+          delay: 5000, // 5 detik per slide
+          disableOnInteraction: false,
+        },
       });
     }
 
-    // Blok shortcut DevTools
     document.addEventListener('keydown', function (e) {
       if (
         e.key === 'F12' ||
