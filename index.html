@@ -1,129 +1,110 @@
-<!DOCTYPE html>
-<html lang="id">
-<head>
-  <meta charset="UTF-8" />
-  <title>Selamat Pagi Fidaa 🌞</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+<!DOCTYPE html><html lang="id"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Selamat Pagi Fidaa 🌞</title>  <!-- Favicon dan Font -->  <link rel="icon" href="https://feeldreams.github.io/main-icon.png">
+  <link href="https://fonts.googleapis.com/css2?family=Quicksand&display=swap" rel="stylesheet">  <!-- Swiper dan CSS -->  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <style>
-    body, html {
+    body {
       margin: 0;
       padding: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: url('https://feeldreams.github.io/morning.jpg') no-repeat center center fixed;
+      background: url('https://feeldreams.github.io/wp11.jpg') no-repeat center center fixed;
       background-size: cover;
+      font-family: 'Quicksand', sans-serif;
       color: white;
       text-align: center;
     }
-
-    #startScreen {
+    .start-screen {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100vh;
+      background-color: rgba(0, 0, 0, 0.5);
       display: flex;
+      flex-direction: column;
       justify-content: center;
       align-items: center;
-      height: 100vh;
-      flex-direction: column;
-      background: rgba(0, 0, 0, 0.4);
     }
-
-    #startBtn {
-      padding: 15px 30px;
+    .start-screen button {
+      padding: 10px 20px;
       font-size: 20px;
-      border-radius: 30px;
-      background: #ffcc00;
       border: none;
-      font-weight: bold;
-      color: #000;
+      border-radius: 10px;
+      background-color: #ffffffaa;
+      color: black;
       cursor: pointer;
     }
-
     .swiper {
       display: none;
+      width: 100%;
       height: 100vh;
-      padding: 20px;
-      background: rgba(0, 0, 0, 0.4);
     }
-
     .swiper-slide {
       display: flex;
       flex-direction: column;
-      align-items: center;
       justify-content: center;
+      align-items: center;
+      padding: 20px;
     }
-
     .emoji {
-      font-size: 50px;
-      margin-bottom: 20px;
+      font-size: 40px;
+      margin-bottom: 10px;
     }
-
     .stiker {
-      margin-top: 15px;
-      max-width: 180px;
+      width: 150px;
+      margin-top: 20px;
     }
   </style>
-</head>
-<body>
-
-<audio id="bgMusic" src="https://feeldreams.github.io/audio/morningkiss.mp3"></audio>
-
-<div id="startScreen">
-  <h1>aloo adeek 🌤️</h1>
-  <p>Tap dulu buat mulai pagimu dung ✨</p>
-  <button id="startBtn">Mulai</button>
-</div>
-
-<div class="swiper mySwiper">
-  <div class="swiper-wrapper">
-    <div class="swiper-slide">
-      <div class="emoji">☀️</div>
-      <h1> pagi addek cantik 💛</h1>
-      <p>Semoga harimu dimulai dengan senyum yaa 😚</p>
-    </div>
-    <div class="swiper-slide">
-      <div class="emoji">🍞</div>
-      <h1>Udah bangun kan?</h1>
-      <p>Jangan lupa sarapan duluu~ biar semangat 🤭</p>
-    </div>
-    <div class="swiper-slide">
-      <div class="emoji">✨</div>
-      <h1>Hari ini bakal seru kok!</h1>
-      <p>Apapun yang kamu lakuin, aku dukung penuh 😘</p>
-    </div>
-    <div class="swiper-slide">
-      <div class="emoji">🧡</div>
-      <h1>Fidaa itu spesial, tau nggak?</h1>
-      <p>Jangan pernah ragu buat bersinar hari ini 🌈</p>
-    </div>
-    <div class="swiper-slide">
-      <div class="emoji">🌷</div>
-      <h1>Aku di sini kok, selalu</h1>
-      <p>Yuk jalanin harinya bareng senyum 😄</p>
-      <img class="stiker" src="https://feeldreams.github.io/weee.gif" />
-    </div>
+</head><body>
+  <audio id="music" src="https://feeldreams.github.io/audio/foreveryoung.mp3"></audio>  <div class="start-screen" id="startScreen">
+    <h1>Hai Fidaa 🌞</h1>
+    <p>Tap di sini dulu yaa biar musik dan semuanya bisa jalan ✨</p>
+    <button id="startBtn">Mulai</button>
+  </div>  <!-- Swiper -->  <div class="swiper mySwiper">
+    <div class="swiper-wrapper"><div class="swiper-slide">
+    <div class="emoji">☀️</div>
+    <h1>Selamat pagi Fidaa cantik!</h1>
+    <img class="stiker" src="https://feeldreams.github.io/pusn.gif" />
   </div>
-  <div class="swiper-pagination"></div>
+
+  <div class="swiper-slide">
+    <div class="emoji">🌻</div>
+    <h1>Semoga harimu secerah senyummu hari ini yaa 😊</h1>
+  </div>
+
+  <div class="swiper-slide">
+    <div class="emoji">💌</div>
+    <h1>Aku cuma mau bilang makasii udah tetap ada di hidupku 💖</h1>
+    <p style="max-width: 80%; margin-top: 20px;">Maaf kalau kadang nyebelin dan nggak peka, tapi beneran deh, kamu itu orang paling spesial buat aku 😚</p>
+  </div>
+
+  <div class="swiper-slide">
+    <div class="emoji">🫶</div>
+    <h1>Nikmatin harimu yaa Fidaa 🌼</h1>
+    <h2>Jangan lupa sarapan biar makin semangat 💪</h2>
+  </div>
+
 </div>
+<div class="swiper-pagination"></div>
 
-<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-<script>
-  const startBtn = document.getElementById("startBtn");
-  const music = document.getElementById("bgMusic");
-  const startScreen = document.getElementById("startScreen");
-  const swiperEl = document.querySelector(".swiper");
+  </div>  <!-- JS -->  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  <script>
+    const startBtn = document.getElementById('startBtn');
+    const music = document.getElementById('music');
+    const startScreen = document.getElementById('startScreen');
+    const swiperEl = document.querySelector('.swiper');
 
-  startBtn.addEventListener("click", () => {
-    startScreen.style.display = "none";
-    swiperEl.style.display = "block";
-    music.play();
+    startBtn.addEventListener('click', () => {
+      music.play();
+      startScreen.style.display = 'none';
+      swiperEl.style.display = 'block';
 
-    new Swiper(".mySwiper", {
-      pagination: {
-        el: ".swiper-pagination",
-        clickable: true,
-      },
-      effect: "fade",
-      spaceBetween: 30,
+      new Swiper(".mySwiper", {
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+        effect: "fade",
+        spaceBetween: 30,
+      });
     });
-  });
-</script>
-</body>
-</html>
+  </script></body></html>
