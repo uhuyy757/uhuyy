@@ -5,12 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Hai Fidaa 🌞</title>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-
+  <!-- Font lucu dari Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
-      -webkit-user-select: none;
-      -moz-user-select: none;
-      -ms-user-select: none;
       user-select: none;
     }
 
@@ -19,26 +17,9 @@
       margin: 0;
       padding: 0;
       overflow: hidden;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to top, #fff5e1 0%, #cce5ff 100%);
+      font-family: 'Fredoka', sans-serif;
+      background: linear-gradient(to top, #fff5e1, #cce5ff);
       text-align: center;
-    }
-
-    .clouds {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 100%;
-      background: url('https://feeldreams.github.io/awan.png') repeat-x;
-      animation: moveClouds 60s linear infinite;
-      opacity: 0.3;
-      z-index: -1;
-    }
-
-    @keyframes moveClouds {
-      from { transform: translateX(0); }
-      to { transform: translateX(-50%); }
     }
 
     .container {
@@ -89,14 +70,33 @@
       justify-content: center;
       height: 100vh;
       padding: 20px;
-      text-align: center;
       background: transparent;
       box-sizing: border-box;
+    }
+
+    .swiper-pagination {
+      bottom: 20px !important;
+    }
+
+    .clouds {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 200%;
+      height: 100%;
+      background: url('https://i.ibb.co/58sWnDk/awan.png') repeat-x;
+      animation: moveClouds 60s linear infinite;
+      opacity: 0.3;
+      z-index: -1;
+    }
+
+    @keyframes moveClouds {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
     }
   </style>
 </head>
 <body oncontextmenu="return false">
-
   <div class="clouds"></div>
 
   <div class="container">
@@ -110,7 +110,7 @@
       <div class="swiper-slide">
         <div class="emoji">☀️</div>
         <h1>Selamat pagi Fidaa cantik!</h1>
-        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" alt="Stiker peluk lucu" />
+        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" />
       </div>
       <div class="swiper-slide">
         <div class="emoji">🌻</div>
@@ -132,9 +132,8 @@
     <div class="swiper-pagination"></div>
   </div>
 
-  <audio id="bgMusic" autoplay loop muted>
+  <audio id="bgMusic" loop>
     <source src="https://feeldreams.github.io/audio/pagi.mp3" type="audio/mp3" />
-    Browser kamu tidak mendukung audio 😢
   </audio>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
@@ -144,24 +143,20 @@
       document.querySelector('.swiper').style.display = 'block';
 
       const music = document.getElementById('bgMusic');
-      music.muted = false;
-      const playPromise = music.play();
-      if (playPromise !== undefined) {
-        playPromise.catch(error => {
-          alert("Musiknya belum bisa diputar. Klik lagi ya 😊");
-        });
-      }
+      music.play().catch(() => {
+        alert("Silakan klik lagi kalau musik belum jalan yaa 😊");
+      });
 
       new Swiper(".mySwiper", {
         direction: "horizontal",
         loop: false,
-        effect: "fade",
+        effect: "slide",
         pagination: {
           el: ".swiper-pagination",
           clickable: true,
         },
         autoplay: {
-          delay: 5000, // 5 detik per slide
+          delay: 5000,
           disableOnInteraction: false,
         },
       });
@@ -178,4 +173,4 @@
     });
   </script>
 </body>
-</html>
+  </html>
