@@ -16,7 +16,8 @@
       height: 100%;
       margin: 0;
       font-family: 'Fredoka', sans-serif;
-      background: linear-gradient(to bottom, #fff5e1, #cce5ff);
+      background: url('https://feeldreams.github.io/bg/awan2.jpg') no-repeat center center fixed;
+      background-size: cover;
       overflow: hidden;
     }
 
@@ -33,7 +34,8 @@
       padding: 20px;
       text-align: center;
       z-index: 10;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: rgba(255, 255, 255, 0.75);
+      animation: fadeIn 1s ease-in-out;
     }
 
     .start-button {
@@ -45,6 +47,7 @@
       margin-top: 40px;
       cursor: pointer;
       transition: background 0.3s ease;
+      animation: slideUp 0.8s ease-in-out;
     }
 
     .start-button:hover {
@@ -62,8 +65,9 @@
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background-color: transparent;
+      background-color: rgba(255, 255, 255, 0.6);
       text-align: center;
+      animation: fadeIn 1s ease-in-out;
     }
 
     .emoji {
@@ -71,14 +75,17 @@
       margin-bottom: 20px;
     }
 
-    h1, h2 {
+    h1, h2, p {
       margin: 10px 0;
       font-size: 1.5em;
+      white-space: pre-wrap;
+      opacity: 0;
     }
 
     .stiker {
       width: 140px;
       margin-top: 20px;
+      animation: fadeIn 2s ease-in-out;
     }
 
     .swiper-pagination {
@@ -92,6 +99,16 @@
       .stiker {
         width: 120px;
       }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+
+    @keyframes slideUp {
+      from { transform: translateY(20px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
     }
   </style>
 </head>
@@ -108,7 +125,7 @@
       <div class="swiper-slide">
         <div class="emoji">☀️</div>
         <h1>Selamat pagi adeek cantik!</h1>
-        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" />
+        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" alt="Stiker peluk lucu" />
       </div>
       <div class="swiper-slide">
         <div class="emoji">🌻</div>
@@ -117,7 +134,7 @@
       <div class="swiper-slide">
         <div class="emoji">💌</div>
         <h1>Aku cuma mau bilang makasii udah ada di hidupku 💖</h1>
-        <p style="max-width: 90%; margin-top: 20px;">
+        <p>
           Maaf kalau kadang nyebelin dan nggak peka, tapi beneran deh, kamu itu orang paling spesial buat aku 😚
         </p>
       </div>
@@ -131,18 +148,31 @@
   </div>
 
   <audio id="bgMusic" preload="auto" loop>
-    <source src="https://feeldreams.github.io/audio/pagi.mp3" type="audio/mp3" />
+    <source src="https://feeldreams.github.io/audio/dream.mp3" type="audio/mp3" />
     Browsermu tidak mendukung audio 😢
   </audio>
 
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
+    function typeEffect(el, speed = 40) {
+      const text = el.innerText;
+      el.innerText = '';
+      let i = 0;
+      el.style.opacity = 1;
+      const timer = setInterval(() => {
+        if (i < text.length) {
+          el.innerText += text.charAt(i);
+          i++;
+        } else {
+          clearInterval(timer);
+        }
+      }, speed);
+    }
+
     function mulai() {
-      // Sembunyikan layar awal
       document.getElementById("startScreen").style.display = "none";
       document.getElementById("slideShow").style.display = "block";
 
-      // Putar musik setelah user interaksi
       const audio = document.getElementById("bgMusic");
       audio.currentTime = 0;
       audio.volume = 1.0;
@@ -150,8 +180,7 @@
         alert("Klik sekali lagi ya kalau musik belum bunyi 🎵");
       });
 
-      // Inisialisasi Swiper
-      new Swiper(".mySwiper", {
+      const swiper = new Swiper(".mySwiper", {
         direction: "horizontal",
         loop: false,
         effect: "slide",
@@ -160,14 +189,30 @@
           clickable: true,
         },
         autoplay: {
-          delay: 5000,
+          delay: 7000,
           disableOnInteraction: false,
         },
         allowTouchMove: true,
+        on: {
+          slideChangeTransitionStart: function () {
+            const currentSlide = document.querySelectorAll('.swiper-slide')[swiper.activeIndex];
+            const textEls = currentSlide.querySelectorAll('h1, h2, p');
+            textEls.forEach(el => {
+              el.style.opacity = 1;
+              typeEffect(el);
+            });
+          },
+        },
+      });
+
+      const firstSlide = document.querySelector('.swiper-slide');
+      const firstTexts = firstSlide.querySelectorAll('h1, h2, p');
+      firstTexts.forEach(el => {
+        el.style.opacity = 1;
+        typeEffect(el);
       });
     }
 
-    // Blok shortcut DevTools
     document.addEventListener("keydown", function (e) {
       if (
         e.key === "F12" ||
