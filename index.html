@@ -1,123 +1,177 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Selamat Tidur Fidaa 💤</title>
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Quicksand', sans-serif;
-      background: url('https://feeldreams.github.io/nightsky.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: white;
-      text-align: center;
-    }
-    .overlay {
-      background-color: rgba(0, 0, 0, 0.6);
-      position: fixed;
-      width: 100%;
-      height: 100%;
-      z-index: -1;
-    }
-    .swiper {
-      width: 100%;
-      height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-    h1 {
-      font-size: 24px;
-      margin: 20px;
-    }
-    .emoji {
-      font-size: 48px;
-      animation: bounce 1.2s infinite;
-    }
-    @keyframes bounce {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-    .btn-peluk {
-      background-color: #fff;
-      color: #000;
-      padding: 10px 20px;
-      border-radius: 50px;
-      border: none;
-      font-size: 16px;
-      font-weight: bold;
-      cursor: pointer;
-      margin-top: 20px;
-    }
-    .hidden-msg {
-      display: none;
-      margin-top: 20px;
-      font-size: 18px;
-      color: #ffb6c1;
-    }
-    img.stiker {
-      width: 120px;
-      margin-top: 20px;
-    }
-  </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Selamat Malam & Mimpi Indah</title>
+    <style>
+        /* Background langit berbintang */
+        body {
+            margin: 0;
+            height: 100vh;
+            overflow: hidden;
+            background: #001d3d; /* warna gelap langit malam */
+            color: #ecf0f1;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+        }
+
+        /* Bintang kecil di background */
+        .stars {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            z-index: 0;
+        }
+
+        /* Membuat banyak titik bintang dengan box-shadow */
+        .stars::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: white;
+            box-shadow:
+                10px 20px white,
+                50px 80px white,
+                80px 120px white,
+                130px 50px white,
+                180px 200px white,
+                230px 90px white,
+                280px 130px white,
+                320px 70px white,
+                370px 150px white,
+                400px 100px white,
+                450px 180px white,
+                500px 60px white,
+                550px 140px white,
+                600px 110px white,
+                650px 190px white,
+                700px 130px white;
+            animation: twinkle 3s infinite alternate;
+        }
+
+        @keyframes twinkle {
+            from {
+                opacity: 1;
+            }
+            to {
+                opacity: 0.3;
+            }
+        }
+
+        /* Isi utama */
+        h1 {
+            font-size: 3em;
+            margin-bottom: 0.2em;
+            text-shadow: 0 0 10px #f39c12;
+            position: relative;
+            z-index: 10;
+        }
+        p {
+            font-size: 1.5em;
+            margin-top: 0;
+            max-width: 400px;
+            line-height: 1.5;
+            text-shadow: 0 0 5px #34495e;
+            position: relative;
+            z-index: 10;
+        }
+        .moon {
+            font-size: 6em;
+            margin: 20px 0;
+            animation: glow 2s ease-in-out infinite alternate;
+            position: relative;
+            z-index: 10;
+        }
+        .name {
+            margin-top: 30px;
+            font-size: 2em;
+            font-weight: bold;
+            color: #f1c40f;
+            text-shadow: 0 0 8px #f39c12;
+            position: relative;
+            z-index: 10;
+        }
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #f1c40f, 0 0 20px #f39c12, 0 0 30px #f39c12;
+            }
+            to {
+                text-shadow: 0 0 20px #f1c40f, 0 0 30px #e67e22, 0 0 40px #e67e22;
+            }
+        }
+
+        /* Bintang jatuh */
+        .star {
+            position: fixed;
+            top: -10px;
+            width: 2px;
+            height: 80px;
+            background: linear-gradient(45deg, white, rgba(255, 255, 255, 0));
+            opacity: 0.8;
+            transform: rotate(45deg);
+            animation-name: shooting;
+            animation-timing-function: ease-in;
+            animation-iteration-count: infinite;
+            z-index: 5;
+        }
+        @keyframes shooting {
+            0% {
+                transform: translateX(0) translateY(0) rotate(45deg);
+                opacity: 1;
+            }
+            100% {
+                transform: translateX(-100vw) translateY(100vh) rotate(45deg);
+                opacity: 0;
+            }
+        }
+    </style>
 </head>
 <body>
-  <audio autoplay loop src="https://feeldreams.github.io/audio/tidur.mp3" id="musik"></audio>
-  <div class="overlay"></div>
-  
-  <div class="swiper mySwiper">
-    <div class="swiper-wrapper">
-      
-      <div class="swiper-slide">
-        <div class="emoji">🌙</div>
-        <h1>Hai Fidaa...</h1>
-        <h1 id="type1">Udah malam yaa, waktunya tidur 😴</h1>
-      </div>
+    <div class="stars"></div>
 
-      <div class="swiper-slide">
-        <div class="emoji">💤</div>
-        <h1 id="type2">Makasih udah temenin hariku hari ini 🤍</h1>
-        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" />
-      </div>
+    <div class="moon">🌙</div>
+    <h1>Selamat Malam</h1>
+    <p>Semoga malam ini membawa ketenangan dan mimpi indah yaaa fidaa.<br />bobo yang nyenyak, dan bangun dengan semangat baru.</p>
+    <div class="name">adeek Fida 💖</div>
 
-      <div class="swiper-slide">
-        <div class="emoji">🌌</div>
-        <h1 id="type3">Semoga Fidaa mimpi indah malam ini 💭</h1>
-        <h1>Jangan lupa mimpiin aku ya 😝</h1>
-      </div>
+    <!-- Bintang jatuh dibuat dengan JS -->
+    <script>
+        function createStar() {
+            const star = document.createElement('div');
+            star.classList.add('star');
+            star.style.left = Math.random() * window.innerWidth + 'px';
+            star.style.animationDuration = (Math.random() * 1 + 0.5) + 's';
+            star.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(star);
 
-      <div class="swiper-slide">
-        <div class="emoji">❤️</div>
-        <h1><b>Selamat tidur Fidaa tercinta</b></h1>
-        <h1>Peluk dulu sebelum tidur yuk 🥺👇</h1>
-        <button class="btn-peluk" onclick="showLove()">Peluk Dulu</button>
-        <div class="hidden-msg" id="loveMsg">Awww peluk balik ya Fidaa 💕🫂</div>
-        <img id="stikerPeluk" class="stiker" src="https://feeldreams.github.io/emawh.gif" style="display:none;" />
-      </div>
+            // Hapus bintang setelah animasi selesai
+            star.addEventListener('animationend', () => {
+                star.remove();
+            });
+        }
 
-    </div>
-    <div class="swiper-pagination"></div>
-  </div>
+        // Buat bintang jatuh setiap 700ms
+        setInterval(createStar, 700);
 
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script src="https://unpkg.com/typeit@8.7.0/dist/index.umd.js"></script>
-  <script>
-    new TypeIt("#type1", { speed: 50, waitUntilVisible: true }).go();
-    new TypeIt("#type2", { speed: 50, waitUntilVisible: true }).go();
-    new TypeIt("#type3", { speed: 50, waitUntilVisible: true }).go();
-
-    var swiper = new Swiper(".mySwiper", {
-      effect: "fade",
-      pagination: { el: ".swiper-pagination" },
-      autoplay: { delay: 4000, disableOnInteraction: false },
-    });
-
-    function showLove() {
-      document.getElementById("loveMsg").style.display = "block";
-      document.getElementById("stikerPeluk").style.display = "inline";
-    }
-  </script>
+        // Tambahkan audio musik lembut
+        const audio = document.createElement('audio');
+        audio.src = 'https://www.bensound.com/bensound-music/bensound-sunny.mp3'; // contoh lagu lembut
+        audio.loop = true;
+        audio.volume = 0.15;
+        audio.autoplay = true;
+        audio.muted = false;
+        document.body.appendChild(audio);
+    </script>
 </body>
 </html>
