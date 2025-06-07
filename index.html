@@ -3,163 +3,54 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Untuk Fidaa 💖</title>
+  <link rel="stylesheet" href="style.css" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet" />
-  <style>
-    * {
-      box-sizing: border-box;
-      user-select: none;
-    }
-    html, body {
-      margin: 0;
-      height: 100%;
-      font-family: 'Fredoka', sans-serif;
-      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed;
-      background-size: cover;
-    }
-    .container {
-      height: 100vh;
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-      padding: 20px;
-      animation: fadeIn 1s ease-in-out;
-    }
-    .container h1, .container p {
-      margin: 10px 0;
-      color: #000;
-    }
-    .start-button {
-      background: #ffb703;
-      color: white;
-      padding: 12px 28px;
-      border-radius: 30px;
-      font-weight: bold;
-      margin-top: 30px;
-      cursor: pointer;
-      transition: 0.3s;
-    }
-    .start-button:hover {
-      background: #ff9500;
-    }
-    .swiper {
-      width: 100%;
-      height: 100vh;
-    }
-    .swiper-slide {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      padding: 20px;
-      text-align: center;
-      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');
-      background-size: cover;
-      background-position: center;
-    }
-    .emoji {
-      font-size: 48px;
-      margin-bottom: 20px;
-      animation: float 3s ease-in-out infinite;
-    }
-    @keyframes float {
-      0% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-      100% { transform: translateY(0); }
-    }
-    h1, h2, p {
-      margin: 10px 0;
-      font-size: 1.4em;
-      white-space: pre-wrap;
-      opacity: 0;
-      transform: translateY(20px);
-      animation: fadeInUp 1s ease forwards;
-      animation-delay: 0.5s;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
-    }
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-    .slide5 h2 {
-      animation: pulse 2s infinite;
-      color: #ffb6c1;
-    }
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-    .stiker {
-      width: 140px;
-      margin-top: 20px;
-    }
-    .swiper-pagination {
-      bottom: 20px !important;
-    }
-    @media screen and (max-width: 480px) {
-      h1, h2, p {
-        font-size: 1.2em;
-      }
-      .stiker {
-        width: 120px;
-      }
-    }
-  </style>
 </head>
-<body oncontextmenu="return false">  <div class="container" id="startScreen">
+<body oncontextmenu="return false">
+  <div class="container" id="startScreen" role="dialog" aria-label="Halaman awal">
     <h1>Hai, Fidaa 😊</h1>
     <p>Ketuk di sini untuk memulai dan dengarkan musik indahnya 🎶</p>
-    <div class="start-button" onclick="mulai()">Mulai</div>
-  </div>  <div class="swiper mySwiper" id="slideShow" style="display: none;">
+    <div class="start-button" role="button" aria-label="Tombol mulai" onclick="mulai()">Mulai</div>
+  </div>  <div class="swiper mySwiper" id="slideShow" style="display: none;" role="region" aria-label="Slideshow romantis">
     <div class="swiper-wrapper">
       <div class="swiper-slide slide1">
-        <div class="emoji">🧸</div>
+        <div class="emoji" aria-hidden="true">🧸</div>
         <h1>Selamat pagi, cantikku!</h1>
-        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" alt="Peluk" />
+        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" alt="Stiker peluk beruang imut" />
       </div>
       <div class="swiper-slide slide2">
-        <div class="emoji">🌸</div>
+        <div class="emoji" aria-hidden="true">🌸</div>
         <h1>Semoga harimu seindah bunga-bunga bermekaran 🌼</h1>
-        <img class="stiker" src="https://media.giphy.com/media/TilmLMmWrRYYHjLfub/giphy.gif" alt="Bunga" />
+        <img class="stiker" src="https://feeldreams.github.io/bunga.gif" alt="Stiker bunga lucu berwarna-warni" />
       </div>
       <div class="swiper-slide slide3">
-        <div class="emoji">🍃</div>
+        <div class="emoji" aria-hidden="true">🍃</div>
         <h1>Terima kasih telah hadir di hidupku 💖</h1>
         <p>Maaf jika aku kadang menyebalkan, tapi kamu sangat berarti bagiku 😁</p>
-        <img class="stiker" src="https://feeldreams.github.io/mikir.gif" alt="Mikir" />
+        <img class="stiker" src="https://feeldreams.github.io/mikir.gif" alt="Stiker mikir dengan ekspresi lucu" />
       </div>
       <div class="swiper-slide slide4">
-        <div class="emoji">🌞</div>
+        <div class="emoji" aria-hidden="true">🌞</div>
         <h1>Selamat menikmati harimu, adeekku 🌿</h1>
         <h2>Jangan lupa sarapan yaa! 💪</h2>
-        <img class="stiker" src="https://media.giphy.com/media/l1J3preURPiwjRPvG/giphy.gif" alt="Sarapan" />
+        <img class="stiker" src="https://feeldreams.github.io/lopyu.gif" alt="Stiker sarapan lucu dengan cinta" />
       </div>
       <div class="swiper-slide slide5">
-        <div class="emoji">🎁</div>
+        <div class="emoji" aria-hidden="true">🎁</div>
         <h1>Dan terakhir...</h1>
         <p>Aku cuma mau bilang:</p>
         <h2>Aku sayang kamu, Fidaa 💖</h2>
         <p>Semoga kamu selalu bahagia yaa, dan tetap semangat jalani harinya 🌈</p>
-        <img class="stiker" src="https://media.giphy.com/media/111ebonMs90YLu/giphy.gif" alt="Love bear" />
+        <img class="stiker" src="https://feeldreams.github.io/imut.gif" alt="Stiker love bear lucu" />
       </div>
       <div class="swiper-slide slide6">
-        <div class="emoji">🎉</div>
+        <div class="emoji" aria-hidden="true">🎉</div>
         <h1>Ada kejutan buat kamu 🎁</h1>
         <p>Ketuk kadonya yaa~</p>
-        <img class="stiker" src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" alt="Kado" id="giftBox" onclick="bukaKejutan()" style="cursor: pointer;" />
+        <img class="stiker" src="https://media.giphy.com/media/26AHONQ79FdWZhAI0/giphy.gif" alt="Kado kejutan animasi" id="giftBox" onclick="bukaKejutan()" style="cursor: pointer;" aria-label="Klik untuk membuka kejutan" />
         <div id="surprise" style="display: none; margin-top: 20px; animation: fadeIn 1.5s ease forwards;">
-          <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Bunga" style="width: 120px;" />
+          <img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="Bunga mekar animasi" style="width: 120px;" />
           <p style="font-size: 1.3em; color: #fff; margin-top: 10px;">Love you adeek 💖</p>
         </div>
       </div>
@@ -168,47 +59,7 @@
   </div>  <audio id="bgMusic" preload="auto" loop>
     <source src="https://feeldreams.github.io/audio/foreveryoung.mp3" type="audio/mp3">
     Browser kamu tidak mendukung audio 😢
-  </audio>  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  <script>
-    function mulai() {
-      document.getElementById("startScreen").style.display = "none";
-      document.getElementById("slideShow").style.display = "block";
-
-      const audio = document.getElementById("bgMusic");
-      audio.currentTime = 0;
-      audio.volume = 1.0;
-      audio.play().catch(() => {
-        alert("Klik sekali lagi ya kalau musik belum bunyi 🎵");
-      });
-
-      new Swiper(".mySwiper", {
-        direction: "horizontal",
-        loop: false,
-        effect: "slide",
-        pagination: {
-          el: ".swiper-pagination",
-          clickable: true,
-        },
-        autoplay: {
-          delay: 7000,
-          disableOnInteraction: false,
-        },
-        allowTouchMove: true,
-      });
-    }
-
-    function bukaKejutan() {
-      document.getElementById("giftBox").style.display = "none";
-      document.getElementById("surprise").style.display = "block";
-    }
-
-    document.addEventListener("keydown", function (e) {
-      if (
-        e.key === "F12" ||
-        (e.ctrlKey && e.shiftKey && ["I", "J", "C"].includes(e.key)) ||
-        (e.ctrlKey && e.key === "U")
-      ) {
-        e.preventDefault();
-      }
-    });
-  </script></body>
-                               </html>
+  </audio>  <noscript>
+    <p style="text-align: center; padding: 20px; background: #ffc; color: #000;">
+      JavaScript diperlukan untuk menampilkan halaman ini dengan benar. Silakan aktifkan JavaScript di browser kamu.
+              </p>
