@@ -21,7 +21,7 @@
     .container {
       height: 100vh;
       width: 100%;
-      background-color: rgba(0, 0, 0, 0); /* transparan penuh */
+      background-color: rgba(0, 0, 0, 0);
       display: flex;
       flex-direction: column;
       justify-content: center;
@@ -48,12 +48,10 @@
     .start-button:hover {
       background: #ff9500;
     }
-
     .swiper {
       width: 100%;
       height: 100vh;
     }
-
     .swiper-slide {
       background-blend-mode: lighten;
       background-color: transparent;
@@ -63,31 +61,20 @@
       justify-content: center;
       padding: 20px;
       text-align: center;
+      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');
       background-size: cover;
       background-position: center;
     }
-
-    /* Semua slide sama tema pegunungan hijau */
-    .slide1,
-    .slide2,
-    .slide3,
-    .slide4,
-    .slide5 {
-      background-image: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80');
-    }
-
     .emoji {
       font-size: 48px;
       margin-bottom: 20px;
       animation: float 3s ease-in-out infinite;
     }
-
     @keyframes float {
       0% { transform: translateY(0); }
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0); }
     }
-
     h1, h2, p {
       margin: 10px 0;
       font-size: 1.4em;
@@ -99,34 +86,28 @@
       color: #fff;
       text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
     }
-
     .slide5 h2 {
       animation: pulse 2s infinite;
       color: #ffb6c1;
     }
-
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-
     @keyframes fadeInUp {
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
-
     .stiker {
       width: 140px;
       margin-top: 20px;
     }
-
     .swiper-pagination {
       bottom: 20px !important;
     }
-
     @media screen and (max-width: 480px) {
       h1, h2, p {
         font-size: 1.2em;
@@ -135,7 +116,6 @@
         width: 120px;
       }
     }
-
     @keyframes fadeIn {
       from { opacity: 0; }
       to { opacity: 1; }
@@ -153,24 +133,26 @@
   <div class="swiper mySwiper" id="slideShow" style="display: none;">
     <div class="swiper-wrapper">
       <div class="swiper-slide slide1">
-        <div class="emoji">🌄</div>
+        <div class="emoji">🧸</div>
         <h1>Selamat pagi, cantikku!</h1>
         <img class="stiker" src="https://feeldreams.github.io/pusn.gif" alt="Stiker peluk lucu" />
       </div>
       <div class="swiper-slide slide2">
         <div class="emoji">🌸</div>
         <h1>Semoga harimu seindah bunga-bunga bermekaran 🌼</h1>
+        <img class="stiker" src="https://feeldreams.github.io/goodmorning.gif" alt="Stiker bunga" />
       </div>
       <div class="swiper-slide slide3">
         <div class="emoji">🍃</div>
         <h1>Terima kasih telah hadir di hidupku 💖</h1>
         <p>Maaf jika aku kadang menyebalkan, tapi kamu sangat berarti bagiku 😁</p>
+        <img class="stiker" src="https://feeldreams.github.io/mikir.gif" alt="Stiker mikir lucu" />
       </div>
       <div class="swiper-slide slide4">
         <div class="emoji">🌞</div>
         <h1>Selamat menikmati harimu, adeekku 🌿</h1>
         <h2>Jangan lupa sarapan, biar semangatmu penuh! 💪</h2>
-        <img class="stiker" src="https://feeldreams.github.io/pusn.gif" alt="Stiker peluk lucu" />
+        <img class="stiker" src="https://feeldreams.github.io/ngunyah.gif" alt="Stiker sarapan" />
       </div>
       <div class="swiper-slide slide5">
         <div class="emoji">🎁</div>
@@ -184,13 +166,11 @@
     <div class="swiper-pagination"></div>
   </div>
 
-  <!-- AUDIO -->
   <audio id="bgMusic" preload="auto" loop>
     <source src="https://feeldreams.github.io/audio/foreveryoung.mp3" type="audio/mp3">
     Browser kamu tidak mendukung audio 😢
   </audio>
 
-  <!-- SCRIPT -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
     function mulai() {
