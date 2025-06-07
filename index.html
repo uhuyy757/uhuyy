@@ -8,55 +8,43 @@
   <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;600&display=swap" rel="stylesheet" />
   <style>
     * {
-      user-select: none;
       box-sizing: border-box;
+      user-select: none;
     }
-
     html, body {
-      height: 100%;
       margin: 0;
+      height: 100%;
       font-family: 'Fredoka', sans-serif;
       background: url('https://feeldreams.github.io/bg/awan2.jpg') no-repeat center center fixed;
       background-size: cover;
-      overflow: hidden;
     }
-
     .container {
-      position: absolute;
-      top: 0;
-      left: 0;
       height: 100vh;
       width: 100%;
+      background-color: rgba(255, 255, 255, 0.75);
       display: flex;
       flex-direction: column;
       justify-content: center;
       align-items: center;
-      padding: 20px;
       text-align: center;
+      padding: 20px;
       z-index: 10;
-      background-color: rgba(255, 255, 255, 0.75);
       animation: fadeIn 1s ease-in-out;
     }
-
-    /* WARNA TULISAN SUPAYA JELAS DI BACKGROUND TERANG */
     .container h1, .container p {
+      margin: 10px 0;
       color: #000;
-      opacity: 1 !important;
-      visibility: visible !important;
     }
-
     .start-button {
       background: #ffb703;
-      color: #fff;
-      padding: 14px 28px;
+      color: white;
+      padding: 12px 28px;
       border-radius: 30px;
       font-weight: bold;
-      margin-top: 40px;
+      margin-top: 30px;
       cursor: pointer;
-      transition: background 0.3s ease;
-      animation: slideUp 0.8s ease-in-out;
+      transition: 0.3s;
     }
-
     .start-button:hover {
       background: #ff9500;
     }
@@ -65,43 +53,35 @@
       width: 100%;
       height: 100vh;
     }
-
     .swiper-slide {
+      background-color: rgba(255,255,255,0.7);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 20px;
-      background-color: rgba(255, 255, 255, 0.6);
       text-align: center;
-      animation: fadeIn 1s ease-in-out;
     }
-
     .emoji {
       font-size: 48px;
       margin-bottom: 20px;
     }
-
     h1, h2, p {
       margin: 10px 0;
-      font-size: 1.5em;
+      font-size: 1.4em;
       white-space: pre-wrap;
-      opacity: 0;
     }
-
     .stiker {
       width: 140px;
       margin-top: 20px;
-      animation: fadeIn 2s ease-in-out;
     }
-
     .swiper-pagination {
       bottom: 20px !important;
     }
 
     @media screen and (max-width: 480px) {
-      h1 {
-        font-size: 1.3em;
+      h1, h2, p {
+        font-size: 1.2em;
       }
       .stiker {
         width: 120px;
@@ -112,18 +92,13 @@
       from { opacity: 0; }
       to { opacity: 1; }
     }
-
-    @keyframes slideUp {
-      from { transform: translateY(20px); opacity: 0; }
-      to { transform: translateY(0); opacity: 1; }
-    }
   </style>
 </head>
 <body oncontextmenu="return false">
 
   <div class="container" id="startScreen">
     <h1>aloo fidaa 😊</h1>
-    <p>Tap di sini dulu yaa agar semuanya bisa tersampaikan ✨</p>
+    <p>Tap di sini dulu yaa biar musik dan semuanya bisa jalan ✨</p>
     <div class="start-button" onclick="mulai()">Mulai</div>
   </div>
 
@@ -141,9 +116,7 @@
       <div class="swiper-slide">
         <div class="emoji">💌</div>
         <h1>Aku cuma mau bilang makasii udah ada di hidupku 💖</h1>
-        <p style="max-width: 90%; margin: 20px auto 0; text-align: center;">
-          Maaf kalau kadang nyebelin dan nggak peka, tapi beneran deh, kamu itu orang paling spesial buat aku 😚
-        </p>
+        <p>Maaf kalau kadang nyebelin dan nggak peka,\ntapi beneran deh, kamu itu orang paling spesial buat aku 😚</p>
       </div>
       <div class="swiper-slide">
         <div class="emoji">🫶</div>
@@ -154,28 +127,15 @@
     <div class="swiper-pagination"></div>
   </div>
 
+  <!-- AUDIO -->
   <audio id="bgMusic" preload="auto" loop>
-    <source src="https://feeldreams.github.io/audio/dream.mp3" type="audio/mp3" />
-    Browsermu tidak mendukung audio 😢
+    <source src="https://feeldreams.github.io/audio/dream.mp3" type="audio/mp3">
+    Browser kamu tidak mendukung audio 😢
   </audio>
 
+  <!-- SCRIPT -->
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script>
-    function typeEffect(el, speed = 40) {
-      const text = el.innerText;
-      el.innerText = '';
-      let i = 0;
-      el.style.opacity = 1;
-      const timer = setInterval(() => {
-        if (i < text.length) {
-          el.innerText += text.charAt(i);
-          i++;
-        } else {
-          clearInterval(timer);
-        }
-      }, speed);
-    }
-
     function mulai() {
       document.getElementById("startScreen").style.display = "none";
       document.getElementById("slideShow").style.display = "block";
@@ -187,7 +147,7 @@
         alert("Klik sekali lagi ya kalau musik belum bunyi 🎵");
       });
 
-      const swiper = new Swiper(".mySwiper", {
+      new Swiper(".mySwiper", {
         direction: "horizontal",
         loop: false,
         effect: "slide",
@@ -200,23 +160,6 @@
           disableOnInteraction: false,
         },
         allowTouchMove: true,
-        on: {
-          slideChangeTransitionStart: function () {
-            const currentSlide = document.querySelectorAll('.swiper-slide')[swiper.activeIndex];
-            const textEls = currentSlide.querySelectorAll('h1, h2, p');
-            textEls.forEach(el => {
-              el.style.opacity = 1;
-              typeEffect(el);
-            });
-          },
-        },
-      });
-
-      const firstSlide = document.querySelector('.swiper-slide');
-      const firstTexts = firstSlide.querySelectorAll('h1, h2, p');
-      firstTexts.forEach(el => {
-        el.style.opacity = 1;
-        typeEffect(el);
       });
     }
 
