@@ -1,5 +1,4 @@
-<!DOCTYPE html>
-<html lang="id">
+<!DOCTYPE html><html lang="id">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -118,15 +117,11 @@
     }
   </style>
 </head>
-<body oncontextmenu="return false">
-
-  <div class="container" id="startScreen">
+<body oncontextmenu="return false">  <div class="container" id="startScreen">
     <h1>Hai, Fidaa 😊</h1>
     <p>Ketuk di sini untuk memulai dan dengarkan musik indahnya 🎶</p>
     <div class="start-button" onclick="mulai()">Mulai</div>
-  </div>
-
-  <div class="swiper mySwiper" id="slideShow" style="display: none;">
+  </div>  <div class="swiper mySwiper" id="slideShow" style="display: none;">
     <div class="swiper-wrapper">
       <div class="swiper-slide slide1">
         <div class="emoji">🧸</div>
@@ -170,15 +165,10 @@
       </div>
     </div>
     <div class="swiper-pagination"></div>
-  </div>
-
-  <audio id="bgMusic" preload="auto" loop>
+  </div>  <audio id="bgMusic" preload="auto" loop>
     <source src="https://feeldreams.github.io/audio/foreveryoung.mp3" type="audio/mp3">
     Browser kamu tidak mendukung audio 😢
-  </audio>
-
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-  <script>
+  </audio>  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>  <script>
     function mulai() {
       document.getElementById("startScreen").style.display = "none";
       document.getElementById("slideShow").style.display = "block";
@@ -220,6 +210,5 @@
         e.preventDefault();
       }
     });
-  </script>
-</body>
-          </html>
+  </script></body>
+                               </html>
