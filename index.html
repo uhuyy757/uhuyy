@@ -53,28 +53,67 @@
       width: 100%;
       height: 100vh;
     }
+
     .swiper-slide {
-      background-color: rgba(255,255,255,0.7);
+      background-blend-mode: lighten;
+      background-color: rgba(255, 255, 255, 0.8);
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
       padding: 20px;
       text-align: center;
+      background-size: cover;
+      background-position: center;
     }
+
+    .slide1 {
+      background-image: url('https://feeldreams.github.io/bg/love1.jpg');
+    }
+    .slide2 {
+      background-image: url('https://feeldreams.github.io/bg/love2.jpg');
+    }
+    .slide3 {
+      background-image: url('https://feeldreams.github.io/bg/love3.jpg');
+    }
+    .slide4 {
+      background-image: url('https://feeldreams.github.io/bg/love4.jpg');
+    }
+
     .emoji {
       font-size: 48px;
       margin-bottom: 20px;
+      animation: float 3s ease-in-out infinite;
     }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
     h1, h2, p {
       margin: 10px 0;
       font-size: 1.4em;
       white-space: pre-wrap;
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.5s;
     }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
     .stiker {
       width: 140px;
       margin-top: 20px;
     }
+
     .swiper-pagination {
       bottom: 20px !important;
     }
@@ -97,31 +136,31 @@
 <body oncontextmenu="return false">
 
   <div class="container" id="startScreen">
-    <h1>Hai Fidaa 😊</h1>
-    <p>Ketuk di sini untuk memulai dan dengarkan musiknya 🎶</p>
+    <h1>Hai, Fidaa 😊</h1>
+    <p>Ketuk di sini untuk memulai dan dengarkan musik indahnya 🎶</p>
     <div class="start-button" onclick="mulai()">Mulai</div>
   </div>
 
   <div class="swiper mySwiper" id="slideShow" style="display: none;">
     <div class="swiper-wrapper">
-      <div class="swiper-slide">
+      <div class="swiper-slide slide1">
         <div class="emoji">☀️</div>
         <h1>Selamat pagi, cantikku!</h1>
         <img class="stiker" src="https://feeldreams.github.io/pusn.gif" alt="Stiker peluk lucu" />
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide slide2">
         <div class="emoji">🌻</div>
-        <h1>Semoga harimu seindah senyummu hari ini 😊</h1>
+        <h1>Semoga harimu seindah senyummu 😊</h1>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide slide3">
         <div class="emoji">💌</div>
-        <h1>Terima kasih sudah ada di hidupku 💖</h1>
-        <p>Maaf kalau kadang aku menyebalkan,\ntapi kamu sangat berarti bagiku 😚</p>
+        <h1>Terima kasih telah hadir di hidupku 💖</h1>
+        <p>Maaf jika aku kadang menyebalkan, tapi kamu sangat berarti bagiku 😚</p>
       </div>
-      <div class="swiper-slide">
+      <div class="swiper-slide slide4">
         <div class="emoji">🫶</div>
-        <h1>Nikmati harimu, sayang 🌼</h1>
-        <h2>Jangan lupa sarapan agar semangatmu penuh 💪</h2>
+        <h1>Selamat menikmati harimu, sayang 🌼</h1>
+        <h2>Jangan lupa sarapan, biar semangatmu penuh! 💪</h2>
       </div>
     </div>
     <div class="swiper-pagination"></div>
