@@ -101,9 +101,16 @@
         transform: translateY(0);
       }
     }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
     .stiker {
       width: 140px;
       margin-top: 20px;
+    }
+    .slide6 {
+      flex-direction: column;
     }
     .swiper-pagination {
       bottom: 20px !important;
@@ -115,10 +122,6 @@
       .stiker {
         width: 120px;
       }
-    }
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
     }
   </style>
 </head>
@@ -140,7 +143,7 @@
       <div class="swiper-slide slide2">
         <div class="emoji">🌸</div>
         <h1>Semoga harimu seindah bunga-bunga bermekaran 🌼</h1>
-        <img class="stiker" src="https://feeldreams.github.io/goodmorning.gif" alt="Stiker bunga" />
+        <img class="stiker" src="https://feeldreams.github.io/bunga.gif" alt="Stiker bunga" />
       </div>
       <div class="swiper-slide slide3">
         <div class="emoji">🍃</div>
@@ -161,6 +164,16 @@
         <h2>Aku sayang kamu, Fidaa 💖</h2>
         <p>Semoga kamu selalu bahagia yaa, dan tetap semangat jalani harinya 🌈</p>
         <img class="stiker" src="https://feeldreams.github.io/lovebear.gif" alt="Love surprise" />
+      </div>
+      <div class="swiper-slide slide6">
+        <div class="emoji">🎉</div>
+        <h1>Ada kejutan buat kamu 🎁</h1>
+        <p>Ketuk kadonya yaa~</p>
+        <img class="stiker" src="https://media.giphy.com/media/3o6Zt481isNVuQI1l6/giphy.gif" alt="Kado kejutan" id="giftBox" onclick="bukaKejutan()" style="cursor: pointer;" />
+        <div id="surprise" style="display: none; margin-top: 20px;">
+          <img src="https://media.giphy.com/media/3ohzdYJK1wAdPWVk88/giphy.gif" alt="Bunga cinta" style="width: 120px; animation: fadeIn 1.2s ease;" />
+          <p style="font-size: 1.3em; color: #fff; animation: fadeInUp 1.2s ease; margin-top: 10px;">Love you adeek 💖</p>
+        </div>
       </div>
     </div>
     <div class="swiper-pagination"></div>
@@ -200,6 +213,13 @@
       });
     }
 
+    function bukaKejutan() {
+      const gift = document.getElementById("giftBox");
+      const surprise = document.getElementById("surprise");
+      gift.style.display = "none";
+      surprise.style.display = "block";
+    }
+
     document.addEventListener("keydown", function (e) {
       if (
         e.key === "F12" ||
@@ -211,4 +231,4 @@
     });
   </script>
 </body>
-  </html>
+          </html>
