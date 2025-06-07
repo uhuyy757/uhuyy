@@ -15,7 +15,7 @@
       margin: 0;
       height: 100%;
       font-family: 'Fredoka', sans-serif;
-      background: url('https://images.unsplash.com/photo-1525393839360-cc38d717d8f6?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed;
+      background: url('https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=1200&q=80') no-repeat center center fixed;
       background-size: cover;
     }
     .container {
@@ -56,7 +56,7 @@
 
     .swiper-slide {
       background-blend-mode: lighten;
-      background-color: rgba(255, 255, 255, 0.8);
+      background-color: transparent;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -68,16 +68,19 @@
     }
 
     .slide1 {
-      background-image: url('https://images.unsplash.com/photo-1519125323398-675f0ddb6308?auto=format&fit=crop&w=1200&q=80');
+      background-image: url('https://images.unsplash.com/photo-1502082553048-f009c37129b9?auto=format&fit=crop&w=1200&q=80');
     }
     .slide2 {
-      background-image: url('https://images.unsplash.com/photo-1503023345310-bd7c1de61c7d?auto=format&fit=crop&w=1200&q=80');
+      background-image: url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=1200&q=80');
     }
     .slide3 {
-      background-image: url('https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=1200&q=80');
+      background-image: url('https://images.unsplash.com/photo-1505483531331-fc3cf89fd382?auto=format&fit=crop&w=1200&q=80');
     }
     .slide4 {
-      background-image: url('https://images.unsplash.com/photo-1529626455594-4ff0802cfb7e?auto=format&fit=crop&w=1200&q=80');
+      background-image: url('https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1200&q=80');
+    }
+    .slide5 {
+      background-image: url('https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=1200&q=80');
     }
 
     .emoji {
@@ -100,6 +103,19 @@
       transform: translateY(20px);
       animation: fadeInUp 1s ease forwards;
       animation-delay: 0.5s;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.5);
+    }
+
+    .slide5 h2 {
+      animation: pulse 2s infinite;
+      color: #ffb6c1;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     @keyframes fadeInUp {
@@ -144,23 +160,31 @@
   <div class="swiper mySwiper" id="slideShow" style="display: none;">
     <div class="swiper-wrapper">
       <div class="swiper-slide slide1">
-        <div class="emoji">☀️</div>
+        <div class="emoji">🌄</div>
         <h1>Selamat pagi, cantikku!</h1>
         <img class="stiker" src="https://feeldreams.github.io/pusn.gif" alt="Stiker peluk lucu" />
       </div>
       <div class="swiper-slide slide2">
-        <div class="emoji">🌻</div>
-        <h1>Semoga harimu seindah senyummu 😊</h1>
+        <div class="emoji">🌸</div>
+        <h1>Semoga harimu seindah bunga-bunga bermekaran 🌼</h1>
       </div>
       <div class="swiper-slide slide3">
-        <div class="emoji">💌</div>
+        <div class="emoji">🍃</div>
         <h1>Terima kasih telah hadir di hidupku 💖</h1>
-        <p>Maaf jika aku kadang menyebalkan,tapi kamu sangat berarti bagiku 😁</p>
+        <p>Maaf jika aku kadang menyebalkan, tapi kamu sangat berarti bagiku 😁</p>
       </div>
       <div class="swiper-slide slide4">
-        <div class="emoji">💐</div>
-        <h1>Selamat menikmati harimu, adeekku 🌼</h1>
+        <div class="emoji">🌞</div>
+        <h1>Selamat menikmati harimu, adeekku 🌿</h1>
         <h2>Jangan lupa sarapan, biar semangatmu penuh! 💪</h2>
+      </div>
+      <div class="swiper-slide slide5">
+        <div class="emoji">🎁</div>
+        <h1>Dan terakhir...</h1>
+        <p>Aku cuma mau bilang:</p>
+        <h2>Aku sayang kamu, Fidaa 💖</h2>
+        <p>Semoga kamu selalu bahagia yaa, dan tetap semangat jalani harinya 🌈</p>
+        <img class="stiker" src="https://feeldreams.github.io/lovebear.gif" alt="Love surprise" />
       </div>
     </div>
     <div class="swiper-pagination"></div>
@@ -213,4 +237,4 @@
     });
   </script>
 </body>
-</html>
+  </html>
